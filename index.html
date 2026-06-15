@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💕</title>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ffc0cb, #ffb6c1, #ffd1dc);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .container {
+        position: relative;
+        z-index: 10;
+        background: rgba(255,255,255,0.2);
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+        color: #ff1493;
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .wish {
+        color: #d63384;
+        font-size: 1.4rem;
+        font-weight: bold;
+        line-height: 1.6;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 50px;
+        background: #ff4da6;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #ff1493;
+    }
+
+    #gift {
+        display: none;
+        margin-top: 25px;
+        animation: pop 1s ease;
+    }
+
+    #gift h2 {
+        color: #ff1493;
+    }
+
+    .gift-box {
+        font-size: 80px;
+    }
+
+    @keyframes pop {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .floating {
+        position: absolute;
+        bottom: -50px;
+        font-size: 30px;
+        animation: floatUp linear infinite;
+        user-select: none;
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-120vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎂 Happy Birthday Sangita! 🎂</h1>
+
+    <p class="wish">
+        Wishing you a day filled with happiness,<br>
+        endless smiles, sweet surprises,<br>
+        and all the love your heart can hold. 💕<br><br>
+        May every candle on your cake light up<br>
+         a new hope, a new dream, and a new reason to celebrate life.🐰❤️<br>
+    </p>
+
+    <button onclick="showGift()">🎁 Surprise</button>
+
+    <div id="gift">
+        <div class="gift-box">🎀🎁🎀</div>
+        <h2>You are truly special! 💖</h2>
+        <p style="color:#d63384; font-size:18px;">
+            May this birthday mark the beginning of a chapter filled with unexpected joy,<br>
+            silent victories, unforgettable memories, and the kind of happiness that stays.🍫,<br>
+            The world became a little brighter on the day you were born. 🎂,<br>
+            Once Again Many Many Happy Returns Of The Day Sangita Lamichhane!🌷<br>
+        </p>
+        <div style="font-size:50px;">
+            💐 🍫 🎂 🧸 💝
+        </div>
+    </div>
+</div>
+
+<script>
+    function showGift() {
+        document.getElementById("gift").style.display = "block";
+    }
+
+    const emojis = ["🐰", "❤️", "💗", "💕"];
+
+    function createEmoji() {
+        const emoji = document.createElement("div");
+        emoji.className = "floating";
+        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.fontSize = (25 + Math.random() * 25) + "px";
+        emoji.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 11000);
+    }
+
+    setInterval(createEmoji, 500);
+</script>
+
+</body>
+</html>
